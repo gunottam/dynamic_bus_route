@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Select Bus Stop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h2 class="page-title">Select your requested stop</h2>
+        <form method="POST" class="stop-form">
+            <div class="form-group">
+                {% if error %}
+                    <p class="error-message">{{ error }}</p>
+                {% endif %}
+                {% for stop in stops %}
+                    <div class="stop-option">
+                        <input type="radio" name="stops" value="{{ stop }}" id="stop-{{ loop.index }}" {% if stop in selected %}checked{% endif %}>
+                        <label for="stop-{{ loop.index }}" class="stop-label">{{ stop }}</label>
+                    </div>
+                {% endfor %}
+            </div>
+            <button type="submit" class="submit-button">Submit</button>
+        </form>
+        <p class="instruction-text">Select a stop and click Submit.</p>
+    </div>
+</body>
+</html>
