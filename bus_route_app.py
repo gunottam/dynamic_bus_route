@@ -262,6 +262,7 @@ class BusRouteApp:
 
 if __name__ == "__main__":
     root = tk.Tk()
-    flask_app_url = "http://gunottammaini.pythonanywhere.com"
+    #flask_app_url = "http://gunottammaini.pythonanywhere.com"
+    flask_app_url = "http://127.0.0.1:5500"
     app = BusRouteApp(root, flask_app_url)
     root.mainloop()
